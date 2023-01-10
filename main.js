@@ -5,7 +5,7 @@ const json2csv = require('json2csv').parse;
 csv()
   .fromFile('selected.csv')
   .then((jsonObj) => {
-    // console.log(jsonObj.length);
+   
     let finalData = [];
     for(let i=0;i<jsonObj.length;i++) {
         let user={};
@@ -13,7 +13,7 @@ csv()
             if(key=="email"){
                 user.email = value;
             }else{
-                // console.log("Hi")
+               
                 if(value==""){
                     user[key]="Not attempted";
                     continue;
@@ -22,7 +22,7 @@ csv()
                 let best_runtime=Number.MAX_SAFE_INTEGER;
                 let best_memory=Number.MAX_SAFE_INTEGER;
                 let allsub = JSON.parse(value); // all submission for a question
-                // console.log(JSON.stringify(allsub[0]["M"]["output"]["L"]));
+                
                 for(let j=0;j<allsub.length;j++) {
                     //  check whether output is empty
                 if(allsub[j]["M"]["output"]["L"].length==0)continue;
